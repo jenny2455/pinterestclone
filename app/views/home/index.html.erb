@@ -3,9 +3,13 @@
   <div class="card-body">
     <h1>Welcome to My Pinterest App</h1>
     <p>Pretty cool eh!</p>
-
-    <%= link_to "Login", new_user_session_path, class:"btn btn-secondary" %>
-    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary"%>
+    <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, class: "btn btn-primary", method: :delete %>
+    <% else %>
+        <%= link_to "Login", new_user_session_path, class:"btn btn-secondary" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary"%>
+    <% end %>
+    
 
   </div>
 </div>
